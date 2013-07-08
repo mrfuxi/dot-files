@@ -48,13 +48,15 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 
 #alias gradle='/opt/gradle/bin/./gradle'   # using export PATH instead
 
-source /usr/local/bin/virtualenvwrapper.sh
-
-alias ipy='ipython --pdb'
 export INF_HOME=/home/greg/INF
 
+# PYTHON
+source /usr/local/bin/virtualenvwrapper.sh
 export PYTHONDONTWRITEBYTECODE='True'
 export VIRTUALENV_DISTRIBUTE='True'
+alias pygrep='grep --include="*.py"'
+alias pyfind='find . -name "*.py"'
+alias ipy='ipython --pdb'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
