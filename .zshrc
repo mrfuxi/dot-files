@@ -42,6 +42,8 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git history-substring-search history)
 
+# plugins to explore: celery, django, brew, fabric, lein, github, virtualenvwrapper
+
 source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/gradle/gradle-1.6/bin
