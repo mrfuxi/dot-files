@@ -19,6 +19,10 @@
 (setq-default indent-tabs-mode nil)
 (setq-default column-number-mode t)
 
+(setq default-truncate-lines t) ;; disable line wrap
+;; make side by side buffers function the same as the main window
+(setq truncate-partial-width-windows nil)
+(global-set-key (kbd "<f12>") 'toggle-truncate-lines)
 
 ;;(load-theme 'deeper-blue t)
 ;;(set-background-color "#383838")
