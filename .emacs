@@ -14,31 +14,51 @@
 
 
 (setq inhibit-startup-message t)
+(setq make-backup-files nil)
 
 (setq-default indent-tabs-mode nil)
 (setq-default column-number-mode t)
 
-(setq make-backup-files nil)
-(add-hook 'python-mode-hook 'jedi:setup)
 
 ;;(load-theme 'deeper-blue t)
 ;;(set-background-color "#383838")
 
 (require 'ido)
 (ido-mode t)
+;;(require 'auto-complete)
+;;(global-auto-complete-mode t)
+
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
 (add-hook 'term-exec-hook
           (function
            (lambda ()
              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
 
-;; enable jedi autocompletion
+
+;; PYTHON
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
+(add-hook 'python-mode-hook 'jedi:setup)
+(autoload 'pylint "pylint")
+(add-hook 'python-mode-hook 'pylint-add-menu-items)
+(add-hook 'python-mode-hook 'pylint-add-key-bindings)
+(add-hook 'python-mode-hook
+	  (function (lambda ()
+		      (setq indent-tabs-mode nil
+			    tab-width 4))))
+
+
+;; nRepl (CLOJURE/LISPS)
+
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
+;;(require 'rainbow-delimiters)  ;; produces error
+(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)  ;; Lisps love rainbows
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
 
 ;; fix the PATH variable  -- from http://clojure-doc.org/articles/tutorials/emacs.html
 (defun set-exec-path-from-shell-PATH ()
@@ -52,7 +72,7 @@
 ;; enable eldoc in clj buffers
 (add-hook 'nrepl-interaction-mode-hook
           'nrepl-turn-on-eldoc-mode)
-;; hid *nrepl-connection* and *nrepl-server* buffers from appearing in
+;; hide *nrepl-connection* and *nrepl-server* buffers from appearing in
 ;; buffer switching cmds
 (setq nrepl-hide-special-buffers t)
 ;; pressing spc after cmd will switch-to-buffer visible
@@ -62,13 +82,20 @@
 (add-to-list 'same-window-buffer-names "*repl*") ;; C-c C-z switch to
 ;; repl
 
-(add-hook 'nrepl-mode-hook 'paredit-mode)
-(add-hook 'clojure-mode-hook 'paredit-mode)
 
-;;(require 'rainbow-delimiters)  ;; produces error
-(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+;; OTHERS
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-hook 'yaml-mode-hook
+	  '(lambda ()
+	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+
+(autoload 'ssh-config-mode "ssh-config-mode" t)
+(add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
+(add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
+(add-hook 'ssh-config-mode-hook 'turn-on-font-lock)
 
 (provide '.emacs)
 ;;; .emacs ends here

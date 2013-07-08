@@ -29,9 +29,9 @@ Bundle 'L9'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'Zenburn'
 
-filetype plugin indent on
 
-syntax on
+
+
 
 " let g:EasyMotion_leader_key = 'S'
 
@@ -45,11 +45,15 @@ augroup END
 
 map <F2> :NERDTreeToggle<CR>
 
+" Indent
 set tabstop=8
 set expandtab
 set softtabstop=4
 set shiftwidth=4
+filetype plugin indent on
 filetype indent on
+
+syntax on
 
 set encoding=utf-8
 set scrolloff=3
@@ -66,11 +70,18 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2  " ensures status bar shows
 set relativenumber
-" set undofile  " don't want persistant undos
+" set undofile        don't want persistant undos
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+
+
+" Search
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set nohidden   " rm buffer on tab close
 
 " folding w/ py bias
 set foldmethod=indent
@@ -93,8 +104,11 @@ inoremap jj <ESC>
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 
-" python-mode
+" Python
+set colorcolumn=85
 let g:pymode_lint = 1
 let g:pymode_syntax = 1
-let g:pymode_rope = 0   " disable for Jedi-vim
+let g:pymode_rope = 0    " disable for YCM jedi
 
+
+map <Leader>w :call Browser ()<CR>  " open url on this line
