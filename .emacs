@@ -2,17 +2,20 @@
 ;;; Commentary:
 
 ;;; Code:
+
+;; GUI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
+;; PACKAGES
 (setq package-archives '(("ELPA"."http://tromey.com/elpa/")
                          ("gnu"."http://elpa.gnu.org/packages/")
 			 ("marmalade". "http://marmalade-repo.org/packages/") ) )
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-
+;; PREFERENCES
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
 
@@ -27,11 +30,22 @@
 ;;(load-theme 'deeper-blue t)
 ;;(set-background-color "#383838")
 
+
+;;
+;; VARIOUS PLUGINS
+;;
+
 (require 'ido)
 (ido-mode t)
-;;(require 'auto-complete)
-;;(global-auto-complete-mode t)
 
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+;; yasnippet
+(add-to-list 'load-path
+             "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
 
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -40,8 +54,26 @@
            (lambda ()
              (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))))
 
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-hook 'yaml-mode-hook
+	  '(lambda ()
+	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-;; PYTHON
+
+(autoload 'ssh-config-mode "ssh-config-mode" t)
+(add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
+(add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
+(add-hook 'ssh-config-mode-hook 'turn-on-font-lock)
+
+;; END VARIOUS PLUGINS
+
+
+;;
+;; LANGUAGE CONFIGS
+;; 
+
+;; 1 PYTHON
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -54,7 +86,7 @@
 			    tab-width 4))))
 
 
-;; nRepl (CLOJURE/LISPS)
+;; 2 nRepl (CLOJURE/LISPS)
 
 (add-hook 'nrepl-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
@@ -86,20 +118,8 @@
 (add-to-list 'same-window-buffer-names "*repl*") ;; C-c C-z switch to
 ;; repl
 
+;; END LANGUAGE CONFIGS
 
-;; OTHERS
-
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-(add-hook 'yaml-mode-hook
-	  '(lambda ()
-	     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-
-
-(autoload 'ssh-config-mode "ssh-config-mode" t)
-(add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
-(add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
-(add-hook 'ssh-config-mode-hook 'turn-on-font-lock)
 
 (provide '.emacs)
 ;;; .emacs ends here
