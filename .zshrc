@@ -56,6 +56,7 @@ export INF_HOME=/home/greg/INF
 source /usr/local/bin/virtualenvwrapper.sh
 export PYTHONDONTWRITEBYTECODE='True'
 export VIRTUALENV_DISTRIBUTE='True'
+export PYTHONSTARTUP=~/.pythonrc
 alias pygrep='grep --include="*.py"'
 alias pyfind='find . -name "*.py"'
 alias ipy='ipython --pdb'
