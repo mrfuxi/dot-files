@@ -41,25 +41,29 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git history-substring-search history)
-
 # plugins to explore: celery, django, brew, fabric, lein, github, virtualenvwrapper
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/gradle/gradle-1.6/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin
 
-#alias gradle='/opt/gradle/bin/./gradle'   # using export PATH instead
-
-export INF_HOME=/home/greg/INF
-
-# PYTHON
+### PYTHON
 source /usr/local/bin/virtualenvwrapper.sh
+# not necessary for py3 which stores pyc in separate folder
 export PYTHONDONTWRITEBYTECODE='True'
 export VIRTUALENV_DISTRIBUTE='True'
+#alias mkvirtualenv='mkvirtualenv --distribute'
 export PYTHONSTARTUP=~/.pythonrc
+
 alias pygrep='grep --include="*.py"'
 alias pyfind='find . -name "*.py"'
 alias ipy='ipython --pdb'
+alias p="python"
+alias p3="python3"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Editors
+alias e="emacs"
+alias v="vim"
