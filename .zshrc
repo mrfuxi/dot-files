@@ -45,6 +45,7 @@ plugins=(git history-substring-search history)
 
 source $ZSH/oh-my-zsh.sh
 
+export TERM='xterm-256color'
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin
 
 ### PYTHON
