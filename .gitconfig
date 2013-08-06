@@ -1,0 +1,10 @@
+[user]
+    name = <usr_name>
+    email = <my_email>
+
+[core]
+    excludesfile = ~/.global_ignore
+    autocrlf = input
+
+[color]
+    ui = true
