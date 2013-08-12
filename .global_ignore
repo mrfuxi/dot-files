@@ -1,3 +1,12 @@
+### Clojure
+pom.xml
+*jar
+/lib/
+/classes/
+/targets/
+.lein-deps-sum
+
+### Python
 *.py[cod]
 
 # C extensions
@@ -27,26 +36,22 @@ pip-log.txt
 .tox
 nosetests.xml
 
-# Translations
-*.mo
 
-# Mr Developer
-.mr.developer.cfg
-.project
-
-# Django
+### Django
 *.log
 *.pot
 local_settings.py
 
-# vim
+
+### vim
 *.s[a-w][a-z]
 *.un~
 Session.vim
 .netrwhist
 *~
 
-# emacs
+
+### emacs
 *~
 \#*\#
 /.emacs.desktop
@@ -56,6 +61,20 @@ auto-save-list
 tramp
 .\#*
 
-# Org-mode
-.org-id-locations
-*_archive
+
+### Node.js
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
