@@ -25,6 +25,8 @@ Bundle 'L9'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'Zenburn'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'moll/vim-node'
+Bundle 'jelera/vim-javascript-syntax'
 filetype plugin indent on
 
 syntax on
