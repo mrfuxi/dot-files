@@ -29,6 +29,40 @@ Bundle 'moll/vim-node'
 Bundle 'jelera/vim-javascript-syntax'
 filetype plugin indent on
 
+" on .vimrc file save auto source
+autocmd! bufwritepost .vimrc source %
+
+" better copy & paste
+set pastetoggle=<F2>
+set clipboard=unnamed
+
+" simpler window navigation
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" easier indenting of block
+vnoremap < <gv
+vnoremap > >gv
+
+" Make search case insensitive
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Disable stupid backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Settings for ctrlp
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
 syntax on
 set background=dark
 colorscheme molokai
