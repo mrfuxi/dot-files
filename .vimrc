@@ -42,6 +42,12 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+" simpler tab navigation
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
 " easier indenting of block
 vnoremap < <gv
 vnoremap > >gv
