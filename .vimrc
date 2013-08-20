@@ -54,6 +54,7 @@ vnoremap > >gv
 
 " Make search case insensitive
 set hlsearch
+nnoremap <silent> <C-l> :nohl<CR><C-1>
 set incsearch
 set ignorecase
 set smartcase
