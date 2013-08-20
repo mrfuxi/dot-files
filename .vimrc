@@ -107,6 +107,7 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2  " ensures status bar shows
 set relativenumber
+set number                  " absolute nmbr on current line
 " set undofile  " don't want persistant undos
 set wrap
 set textwidth=79
