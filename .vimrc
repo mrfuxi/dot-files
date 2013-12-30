@@ -67,9 +67,11 @@ set noswapfile
 
 " Settings for ctrlp
 let g:ctrlp_max_height = 30
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=*/coverage/*
+
 
 syntax on
 set background=dark
