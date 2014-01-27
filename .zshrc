@@ -68,3 +68,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Editors
 alias e="emacs"
 alias v="vim"
+
+alias m="memcached -d -m 24 -p 11211"
