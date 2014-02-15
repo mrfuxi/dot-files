@@ -3,7 +3,7 @@
     email = <my_email>
 
 [core]
-    excludesfile = ~/.global_ignore
+    excludesfile = ~/.gitignore_global
     autocrlf = input
 
 [color]
@@ -14,3 +14,6 @@
     ci = commit
     co = checkout
     br = branch
+
+[push]
+    default = simple

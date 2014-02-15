@@ -35,6 +35,7 @@ local_settings.py
 
 ### PYTHON
 *.py[cod]
+__pycache__/
 
 # C extensions
 *.so
@@ -43,17 +44,16 @@ local_settings.py
 *.egg
 *.egg-info
 dist
-build
-eggs
+build/
+eggs/
 parts
 bin
-var
-sdist
+var/
+sdist/
 develop-eggs
 .installed.cfg
 lib
 lib64
-__pycache__
 
 # Installer logs
 pip-log.txt
