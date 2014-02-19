@@ -11,7 +11,11 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'klen/python-mode'
 Bundle 'vim-scripts/pep8'
 Bundle 'vim-scripts/mru.vim'
+" Tagbar 
+" depends on exuberant ctags:
+" brew install ctags-exuberant
 Bundle 'majutsushi/tagbar'
+
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'Lokaltog/vim-powerline'
@@ -86,6 +90,8 @@ augroup vimrc_autocmds
 augroup END
 
 map <F2> :NERDTreeToggle<CR>
+" Tagbar window
+nmap <F8> :TagbarToggle<CR>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
