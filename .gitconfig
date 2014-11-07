@@ -1,6 +1,6 @@
 [user]
-    name = <usr_name>
-    email = <my_email>
+    name = Karol Duleba
+    email = mr.fuxi@gmail.com
 
 [core]
     excludesfile = ~/.gitignore_global
