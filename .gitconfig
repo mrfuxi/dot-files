@@ -15,6 +15,10 @@
     ci = commit
     co = checkout
     br = branch
+    review = log -U20 --patch --no-merges --reverse development..
+    safemerge = merge --no-ff --no-commit
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    slog = log --pretty=oneline --no-merges --reverse development.. --abbrev-commit
 
 [push]
     default = simple
