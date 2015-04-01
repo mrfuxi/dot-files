@@ -25,6 +25,12 @@
 --ignore-directory=is:js_built
 --ignore-directory=is:CACHE
 --ignore-directory=is:.sass-cache
+--ignore-directory=is:sitepackages
+--ignore-directory=is:cover
+--ignore-directory=is:migrations
+--ignore-directory=is:tests
+--ignore-directory=is:vendor
+--ignore-file=ext:diff
 --ignore-file=ext:bak
 --ignore-file=is:nosetests.xml
 --ignore-file=match:/~$/
