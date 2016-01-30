@@ -30,6 +30,8 @@
 --ignore-directory=is:migrations
 --ignore-directory=is:tests
 --ignore-directory=is:vendor
+--ignore-directory=is:_site
+--ignore-directory=is:_workspace
 --ignore-file=ext:diff
 --ignore-file=ext:bak
 --ignore-file=is:nosetests.xml
